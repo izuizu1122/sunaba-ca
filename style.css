@@ -1,0 +1,212 @@
+/* 1. 全体の設定（看板の背景色に合わせた生成り色） */
+body {
+    font-family: "Sawarabi Mincho", "Hiragino Mincho ProN", serif;
+    background-color: #f6f1e6; /* 看板の背景に近い温かいクリーム色 */
+    color: #432f2f; /* 濃いローストコーヒーのような茶色 */
+    margin: 0;
+    padding: 0;
+    line-height: 1.8;
+}
+
+/* 2. ヘッダー（看板画像とキャッチコピー） */
+header {
+    background-color: #f6f1e6; 
+    text-align: center;
+    padding: 60px 20px 30px;
+}
+
+.banner-container {
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.header-banner {
+    width: 100%;
+    height: auto;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    border-radius: 10px;
+}
+
+.header-sub {
+    color: #8b0000; /* ロゴと同じエンジ色 */
+    font-size: 1.4rem;
+    font-weight: bold;
+    margin-top: 30px;
+    letter-spacing: 0.4rem;
+    text-shadow: 1px 1px 0px rgba(255,255,255,0.8);
+}
+
+/* 3. メインコンテンツ */
+main {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+section {
+    background-color: #ffffff;
+    padding: 40px;
+    border-radius: 5px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+    margin-bottom: 50px;
+    border-top: 4px solid #b8860b; /* 看板と同じ金色のライン */
+}
+
+h2 {
+    color: #8b0000;
+    font-size: 1.8rem;
+    border-bottom: 1px solid #b8860b;
+    padding-bottom: 15px;
+    margin-top: 0;
+    text-align: center;
+}
+
+/* 4. メニュースライダー */
+.menu-slider {
+    display: flex;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    gap: 20px;
+    padding: 20px 0;
+    -webkit-overflow-scrolling: touch;
+}
+
+.menu-item {
+    flex: 0 0 260px;
+    scroll-snap-align: center;
+    text-align: center;
+    border: 1px solid #e0d8c8;
+    padding: 20px;
+    border-radius: 4px;
+    background-color: #fdfaf5;
+}
+
+.menu-item img {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+    border-radius: 2px;
+}
+
+.menu-item h3 {
+    color: #432f2f;
+    margin: 15px 0 5px;
+}
+
+.menu-item p {
+    color: #8b0000;
+    font-weight: bold;
+}
+
+.swipe-hint {
+    text-align: center;
+    color: #8b0000;
+    font-size: 0.85rem;
+    margin-top: 10px;
+}
+
+/* 5. プロフィール画像 */
+.profile-img {
+    width: 200px;
+    float: left;
+    margin: 0 30px 20px 0;
+    border-radius: 50%;
+    border: 5px solid #fff;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+/* 6. 店舗情報（1:1の均等レイアウト） */
+.info-layout-wrapper {
+    display: flex;
+    gap: 20px;
+    align-items: stretch; /* 高さを揃える */
+    margin-top: 20px;
+}
+
+.info-card {
+    flex: 1; /* 幅を1:1にする */
+    background-color: #fdfaf5;
+    border: 2px solid #8b0000;
+    border-radius: 20px;
+    padding: 25px;
+    box-shadow: 6px 6px 0 #b8860b;
+    display: flex;
+    flex-direction: column;
+}
+
+.info-text-list {
+    flex-grow: 1;
+}
+
+.info-text-list p {
+    margin: 10px 0;
+    font-size: 0.9rem;
+    border-bottom: 1px dashed #dcdde1;
+    padding-bottom: 5px;
+    line-height: 1.4;
+}
+
+.smoking-policy {
+    color: #d9534f;
+    font-weight: bold;
+    border: none !important;
+}
+
+.info-map-small {
+    margin-top: 15px;
+    border-radius: 10px;
+    overflow: hidden;
+    border: 1px solid #b8860b;
+    height: 150px;
+}
+
+.info-outer-photo {
+    flex: 1; /* 幅を1:1にする */
+}
+
+.exterior-side-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* カードの高さに合わせて画像を切り抜く */
+    border-radius: 20px;
+    border: 3px solid #fff;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+/* 7. フッター */
+footer {
+    background-color: #432f2f;
+    color: #f6f1e6;
+    text-align: center;
+    padding: 50px 20px;
+    margin-top: 60px;
+}
+
+/* 8. スマホ・タブレット対応 */
+@media (max-width: 768px) {
+    header { padding-top: 30px; }
+    .header-sub { font-size: 1rem; letter-spacing: 0.2rem; }
+    
+    .info-layout-wrapper {
+        flex-direction: column;
+    }
+    .info-card, .info-outer-photo {
+        width: 100%;
+        flex: none;
+    }
+    .exterior-side-img {
+        height: 250px;
+    }
+    
+    .profile-img {
+        float: none;
+        display: block;
+        margin: 0 auto 20px;
+    }
+}
+
+section::after {
+    content: "";
+    display: block;
+    clear: both;
+}
