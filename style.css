@@ -215,8 +215,3 @@ section::after {
     display: block;
     clear: both;
 }
-section::after {
-    content: "";
-    display: block;
-    clear: both;
-}
