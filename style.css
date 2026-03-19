@@ -44,12 +44,17 @@ main {
 }
 
 section {
-    background-color: #ffffff;
-    padding: 40px;
-    border-radius: 5px;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
-    margin-bottom: 50px;
-    border-top: 4px solid #b8860b; /* 看板と同じ金色のライン */
+    background-color: #fdf5e6; /* オールドレース（薄いベージュ・茶系） */
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 2px 4px 10px rgba(0,0,0,0.08); /* 影を少し控えめにして落ち着きを */
+    margin-bottom: 40px;
+    border: 1px solid #e0d8c8; /* 枠線を少し濃いベージュに */
+    
+    /* 応用：うっすらと和紙のような模様を入れる（任意） */
+    background-image: linear-gradient(rgba(255,255,255,0.4) 1px, transparent 1px),
+                      linear-gradient(90deg, rgba(255,255,255,0.4) 1px, transparent 1px);
+    background-size: 20px 20px; /* うっすらとした格子模様で紙の質感を出す */
 }
 
 h2 {
@@ -205,6 +210,11 @@ footer {
     }
 }
 
+section::after {
+    content: "";
+    display: block;
+    clear: both;
+}
 section::after {
     content: "";
     display: block;
