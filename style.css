@@ -1,11 +1,32 @@
 /* 1. 全体の設定（さわらび明朝を適用） */
+/* 1. 全体の設定（和紙・オールドペーパーの質感を追加） */
 body {
-    font-family: "Sawarabi Mincho", serif;
-    background-color: #f6f1e6;
+    font-family: "Sawarabi Mincho", "Hiragino Mincho ProN", serif;
+    /* ベースの色（看板のクリーム色） */
+    background-color: #f6f1e6; 
+    
+    /* 和紙のような微細な質感を出すための設定（コードで模様を描いています） */
+    background-image: 
+        radial-gradient(circle at 50% 50%, rgba(255,255,255,0.2) 0%, transparent 100%),
+        repeating-linear-gradient(45deg, rgba(139, 69, 19, 0.02) 0px, rgba(139, 69, 19, 0.02) 1px, transparent 1px, transparent 10px),
+        repeating-linear-gradient(-45deg, rgba(139, 69, 19, 0.02) 0px, rgba(139, 69, 19, 0.02) 1px, transparent 1px, transparent 10px);
+    background-attachment: fixed; /* スクロールしても模様がズレない設定 */
+    
     color: #432f2f;
     margin: 0;
     padding: 0;
     line-height: 1.8;
+}
+
+/* ついでに各セクション（白い枠）も少しだけ紙っぽくします */
+section {
+    background-color: #fdf5e6; /* ほんのり色づいた紙の色 */
+    padding: 40px;
+    border-radius: 12px;
+    /* 枠線を二重線（double）にして、さらにレトロな高級感を！ */
+    border: 3px double #d4af37; 
+    box-shadow: 2px 4px 15px rgba(0,0,0,0.05);
+    margin-bottom: 50px;
 }
 
 /* 2. ヘッダー（看板画像スタイル） */
