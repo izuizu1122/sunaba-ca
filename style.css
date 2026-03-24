@@ -182,3 +182,33 @@ section::after {
     display: block;
     clear: both;
 }
+/* --- 写真に動きをつける魔法（ホバーエフェクト） --- */
+
+/* 1. メニューの写真がふわっと浮き上がる */
+.menu-item {
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* 変化を滑らかにする設定 */
+    cursor: pointer; /* マウスを載せると「指マーク」になる */
+}
+
+.menu-item:hover {
+    transform: translateY(-10px) scale(1.02); /* 上に10px浮き上がり、ほんの少し大きく */
+    box-shadow: 0 15px 30px rgba(0,0,0,0.15); /* 影を濃くして、浮いている感を出す */
+}
+
+/* 2. 画像そのものに少し光を当てる */
+.menu-item img {
+    transition: opacity 0.3s ease;
+}
+
+.menu-item:hover img {
+    opacity: 0.9; /* 少しだけ明るく（透かす）ことで、「選択している」感を出します */
+}
+
+/* 3. 二代目マスターと外観写真も、ほんのり動くように */
+.profile-img, .exterior-side-img {
+    transition: transform 0.5s ease;
+}
+
+.profile-img:hover, .exterior-side-img:hover {
+    transform: scale(1.03); /* じわっと少しだけ大きくなる */
+}
