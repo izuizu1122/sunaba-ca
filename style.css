@@ -83,7 +83,7 @@ section:hover h2::after {
     width: 80%;
 }
 
-/* 4. 私たちの物語（マスターの写真は丸く、文章は横に） */
+/* 4. 私たちの物語 */
 #about .flex-container {
     display: flex;
     align-items: center;
@@ -146,53 +146,54 @@ section:hover h2::after {
     filter: sepia(30%) contrast(1.1);
 }
 
-/* 6. 店舗情報（左右を全く同じサイズ・デザインにする修正） */
+/* 6. 【修正】店舗情報：左右完全合同レイアウト */
 .info-layout-wrapper {
     display: flex;
-    gap: 25px;
-    align-items: stretch; /* 高さを強制的に一致させる */
+    gap: 30px;
+    align-items: stretch; /* 高さを強制的に一致させる（重要） */
 }
 
-/* 左側の店舗情報カード と 右側の写真コンテナ を共通デザインに */
+/* 左右の枠を全く同じ設定にする */
 .info-card, .info-outer-photo {
     flex: 1; /* 幅を50%ずつに均等割り */
+    min-height: 100%; /* 高さを親要素に合わせる */
     background-color: #fffcf9;
-    border: 2px solid #8b0000; /* エンジ色の枠線を共通に */
-    border-radius: 20px;       /* 角丸を共通に */
-    box-shadow: 6px 6px 0 #b8860b; /* 金色の影を共通に */
-    overflow: hidden;          /* 中身が枠からはみ出さないように */
+    border: 2px solid #8b0000;
+    border-radius: 20px;
+    box-shadow: 8px 8px 0 #b8860b;
+    overflow: hidden; /* 写真が枠をはみ出さないように */
+    box-sizing: border-box; /* 枠線を含めたサイズ計算にする */
 }
 
+/* 左側：テキスト部分のパディング */
 .info-card {
-    padding: 25px;
+    padding: 30px;
     display: flex;
     flex-direction: column;
-}
-
-.info-text-list {
-    flex-grow: 1;
+    justify-content: space-between;
 }
 
 .info-text-list p {
-    margin: 8px 0;
+    margin: 12px 0;
     font-size: 0.9rem;
     border-bottom: 1px dashed #dcdde1;
     padding-bottom: 5px;
 }
 
 .info-map-small {
-    margin-top: 15px;
+    margin-top: 20px;
     border-radius: 10px;
     overflow: hidden;
     border: 1px solid #b8860b;
-    height: 120px;
+    height: 150px;
+    flex-shrink: 0;
 }
 
-/* 右側の写真：枠の中にピッタリ収める */
+/* 右側：写真を枠いっぱいに広げる */
 .exterior-side-img {
     width: 100%;
-    height: 100%;
-    object-fit: cover; /* 枠の形に合わせて写真を切り抜く */
+    height: 100%; /* 親の info-outer-photo の高さに100%合わせる */
+    object-fit: cover; /* 枠の形に合わせて自動でトリミングする */
     filter: sepia(30%);
     display: block;
 }
@@ -214,9 +215,10 @@ footer {
     .info-card, .info-outer-photo {
         width: 100%;
         flex: none;
+        height: auto;
     }
     .exterior-side-img {
-        height: 250px;
+        height: 300px; /* スマホでは高さを固定 */
     }
     .photo-vignette {
         margin: 0 auto 20px;
