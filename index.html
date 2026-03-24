@@ -4,19 +4,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>スナバカフェ | 創業60年の純喫茶</title>
-    <!-- タブのアイコン（コーヒーカップ） -->
     <link rel="icon" href="favicon.png" type="image/png">
-    
-    <!-- さわらび明朝フォントを読み込む -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Sawarabi+Mincho&display=swap" rel="stylesheet">
-    
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-    <!-- ヘッダー：看板画像 -->
     <header>
         <div class="banner-container">
             <img src="images/header-banner.png" alt="スナバカフェ 看板" class="header-banner">
@@ -25,7 +20,6 @@
     </header>
 
     <main>
-        <!-- 私たちの物語 -->
         <section id="about">
             <h2>私たちの物語</h2>
             <div class="flex-container">
@@ -36,46 +30,21 @@
             </div>
         </section>
 
-        <!-- おすすめメニュー（横スライド形式） -->
         <section id="menu">
             <h2>おすすめメニュー</h2>
             <div class="menu-slider">
-                <div class="menu-item">
-                    <div class="menu-photo-vignette">
-                        <img src="images/coffee.png" alt="ブレンドコーヒー">
-                    </div>
-                    <h3>ブレンドコーヒー</h3>
-                    <p>550円</p>
-                </div>
-                <div class="menu-item">
-                    <div class="menu-photo-vignette">
-                        <img src="images/cake.png" alt="ショートケーキ">
-                    </div>
-                    <h3>ショートケーキ</h3>
-                    <p>450円</p>
-                </div>
-                <div class="menu-item">
-                    <div class="menu-photo-vignette">
-                        <img src="images/napolitan.png" alt="ナポリタン">
-                    </div>
-                    <h3>目玉焼きナポリタン</h3>
-                    <p>1,100円</p>
-                </div>
-                <div class="menu-item">
-                    <div class="menu-photo-vignette">
-                        <img src="images/draft-coffee.png" alt="ドラフトコーヒー">
-                    </div>
-                    <h3>ドラフトコーヒー</h3>
-                    <p>880円</p>
-                </div>
+                <div class="menu-item"><img src="images/coffee.png"><h3>ブレンドコーヒー</h3><p>550円</p></div>
+                <div class="menu-item"><img src="images/cake.png"><h3>ショートケーキ</h3><p>450円</p></div>
+                <div class="menu-item"><img src="images/napolitan.png"><h3>ナポリタン</h3><p>1,100円</p></div>
+                <div class="menu-item"><img src="images/draft-coffee.png"><h3>ドラフトコーヒー</h3><p>880円</p></div>
             </div>
             <p class="swipe-hint">← 横にスライドしてご覧ください →</p>
         </section>
 
-        <!-- 店舗情報（1:1 均等レイアウト） -->
         <section id="info">
             <h2>店舗情報・アクセス</h2>
             <div class="info-layout-wrapper">
+                <!-- 左側のカード -->
                 <div class="info-card">
                     <div class="info-text-list">
                         <p><strong>店名：</strong> スナバカフェ</p>
@@ -83,16 +52,15 @@
                         <p><strong>定休日：</strong> 毎週水曜日</p>
                         <p><strong>住所：</strong> 〒866-0861 熊本県八代市本町1丁目10-43</p>
                         <p><strong>電話番号：</strong> 00-111-222</p>
-                        <p><strong>支払方法：</strong> 現金、各種クレジットカード、電子マネー</p>
-                        <p><strong>駐車場：</strong> 無（近隣のコインパーキングは駐車割引お渡しします）</p>
+                        <p><strong>支払方法：</strong> 現金、各種カード、電子マネー</p>
                         <p class="smoking-policy">※全席禁煙</p>
                     </div>
                     <div class="info-map-small">
-                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3363.386043257876!2d130.60144937628886!3d32.50245229713606!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x353f8644558e5797%3A0x6d9f3801f9c8902!2z44CSODY2LTA4NjEg54aK5pys55yM5YWr5Luj5biC5pys55S677yR5LiB55uu77yR77yQ4oiS77yU77yT!5e0!3m2!1sja!2sjp!4v1710834567000!5m2!1sja!2sjp" 
-                            width="100%" height="200" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3363.386043257876!2d130.60144937628886!3d32.50245229713606!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x353f8644558e5797%3A0x6d9f3801f9c8902!2z44CSODY2LTA4NjEg54aK5pys55yM5YWr5Luj5biC5pys55S677yR5LiB55uu77yR77yQ4oiS77yU77yT!5e0!3m2!1sja!2sjp!4v1710834567000!5m2!1sja!2sjp" width="100%" height="150" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
                     </div>
                 </div>
-                <div class="info-outer-photo photo-vignette">
+                <!-- 右側のカード（左と全く同じ枠の設定） -->
+                <div class="info-outer-photo">
                     <img src="images/exterior.png" alt="スナバカフェ 外観" class="exterior-side-img">
                 </div>
             </div>

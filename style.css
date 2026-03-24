@@ -1,4 +1,4 @@
-/* 1. 全体の設定（さわらび明朝 ＋ 和紙の質感） */
+/* 1. 全体の設定 */
 body {
     font-family: "Sawarabi Mincho", serif;
     background-color: #f6f1e6;
@@ -7,229 +7,68 @@ body {
         repeating-linear-gradient(45deg, rgba(139, 69, 19, 0.02) 0px, rgba(139, 69, 19, 0.02) 1px, transparent 1px, transparent 10px),
         repeating-linear-gradient(-45deg, rgba(139, 69, 19, 0.02) 0px, rgba(139, 69, 19, 0.02) 1px, transparent 1px, transparent 10px);
     background-attachment: fixed;
-    color: #432f2f;
-    margin: 0;
-    padding: 0;
-    line-height: 1.8;
+    color: #432f2f; margin: 0; padding: 0; line-height: 1.8;
 }
 
 /* 2. ヘッダー */
-header {
-    background-color: transparent; 
-    text-align: center;
-    padding: 60px 20px 30px;
-}
+header { text-align: center; padding: 60px 20px 30px; }
+.banner-container { max-width: 900px; margin: 0 auto; }
+.header-banner { width: 100%; height: auto; box-shadow: 0 10px 30px rgba(0,0,0,0.1); border-radius: 10px; }
+.header-sub { color: #8b0000; font-size: 1.4rem; font-weight: bold; margin-top: 30px; letter-spacing: 0.4rem; }
 
-.banner-container {
-    max-width: 900px;
-    margin: 0 auto;
-}
-
-.header-banner {
-    width: 100%;
-    height: auto;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-    border-radius: 10px;
-}
-
-.header-sub {
-    color: #8b0000;
-    font-size: 1.4rem;
-    font-weight: bold;
-    margin-top: 30px;
-    letter-spacing: 0.4rem;
-    text-shadow: 1px 1px 0px rgba(255,255,255,0.8);
-}
-
-/* 3. メインコンテンツ */
-main {
-    max-width: 900px;
-    margin: 0 auto;
-    padding: 20px;
-}
-
-section {
-    background-color: #fdf5e6;
-    padding: 40px;
-    border-radius: 12px;
-    box-shadow: 2px 4px 10px rgba(0,0,0,0.08);
-    margin-bottom: 50px;
-    border: 3px double #d4af37;
-}
-
-h2 {
-    color: #8b0000;
-    font-size: 1.8rem;
-    position: relative;
-    display: inline-block;
-    padding-bottom: 10px;
-    margin-top: 0;
-    width: 100%;
-    text-align: center;
-}
-
-h2::after {
-    content: "";
-    position: absolute;
-    bottom: 0;
-    left: 10%;
-    width: 0;
-    height: 3px;
-    background-color: #8b0000;
-    transition: width 0.5s ease;
-}
-
-section:hover h2::after {
-    width: 80%;
-}
+/* 3. メインレイアウト */
+main { max-width: 900px; margin: 0 auto; padding: 20px; }
+section { background-color: #fdf5e6; padding: 40px; border-radius: 12px; border: 3px double #d4af37; margin-bottom: 50px; }
+h2 { color: #8b0000; font-size: 1.8rem; text-align: center; border-bottom: 2px solid #b8860b; padding-bottom: 15px; }
 
 /* 4. 私たちの物語 */
-#about .flex-container {
-    display: flex;
-    align-items: center;
-    gap: 30px;
-}
-
-.photo-vignette {
-    flex: 0 0 200px;
-    height: 200px;
-    position: relative;
-    overflow: hidden;
-    border-radius: 50%;
-    border: 3px solid #fff;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-}
-
-.profile-img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    filter: sepia(30%);
-}
-
-#about p {
-    flex: 1;
-    margin: 0;
-    text-align: left;
-}
+#about .flex-container { display: flex; align-items: center; gap: 30px; }
+.photo-vignette { flex: 0 0 200px; height: 200px; border-radius: 50%; overflow: hidden; border: 3px solid #fff; box-shadow: 0 4px 15px rgba(0,0,0,0.1); }
+.profile-img { width: 100%; height: 100%; object-fit: cover; filter: sepia(30%); }
+#about p { flex: 1; text-align: left; }
 
 /* 5. メニュースライダー */
-.menu-slider {
-    display: flex;
-    overflow-x: auto;
-    scroll-snap-type: x mandatory;
-    gap: 20px;
-    padding: 20px 0;
-}
+.menu-slider { display: flex; overflow-x: auto; gap: 20px; padding: 20px 0; }
+.menu-item { flex: 0 0 260px; text-align: center; border: 1px solid #e0d8c8; padding: 20px; border-radius: 8px; background-color: #fffaf5; }
+.menu-item img { width: 100%; height: 180px; object-fit: cover; border-radius: 4px; filter: sepia(30%); }
 
-.menu-item {
-    flex: 0 0 260px;
-    scroll-snap-align: center;
-    text-align: center;
-    border: 1px solid #e0d8c8;
-    padding: 20px;
-    border-radius: 8px;
-    background-color: #fffaf5;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.menu-item:hover {
-    transform: translateY(-10px) scale(1.02);
-    box-shadow: 0 15px 30px rgba(0,0,0,0.15);
-}
-
-.menu-item img {
-    width: 100%;
-    height: 180px;
-    object-fit: cover;
-    border-radius: 4px;
-    filter: sepia(30%) contrast(1.1);
-}
-
-/* 6. 【修正】店舗情報：左右完全合同レイアウト */
+/* 6. 【最重要：店舗情報の合同レイアウト】 */
 .info-layout-wrapper {
     display: flex;
     gap: 30px;
-    align-items: stretch; /* 高さを強制的に一致させる（重要） */
+    align-items: stretch; /* これで左右の高さを強制一致させます */
 }
 
-/* 左右の枠を全く同じ設定にする */
+/* 左右の箱（カード）を全く同じデザインに固定 */
 .info-card, .info-outer-photo {
-    flex: 1; /* 幅を50%ずつに均等割り */
-    min-height: 100%; /* 高さを親要素に合わせる */
+    flex: 1; /* 幅を50%ずつ */
     background-color: #fffcf9;
-    border: 2px solid #8b0000;
+    border: 2px solid #8b0000; /* ロゴと同じエンジ色 */
     border-radius: 20px;
-    box-shadow: 8px 8px 0 #b8860b;
-    overflow: hidden; /* 写真が枠をはみ出さないように */
-    box-sizing: border-box; /* 枠線を含めたサイズ計算にする */
-}
-
-/* 左側：テキスト部分のパディング */
-.info-card {
-    padding: 30px;
+    box-shadow: 8px 8px 0 #b8860b; /* 金色の影 */
+    overflow: hidden; /* 写真を枠の中に閉じ込める */
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
 }
 
-.info-text-list p {
-    margin: 12px 0;
-    font-size: 0.9rem;
-    border-bottom: 1px dashed #dcdde1;
-    padding-bottom: 5px;
-}
+.info-card { padding: 30px; }
+.info-text-list p { margin: 10px 0; font-size: 0.9rem; border-bottom: 1px dashed #dcdde1; }
+.smoking-policy { color: #d9534f; font-weight: bold; border: none !important; }
+.info-map-small { margin-top: auto; border-radius: 10px; overflow: hidden; border: 1px solid #b8860b; }
 
-.info-map-small {
-    margin-top: 20px;
-    border-radius: 10px;
-    overflow: hidden;
-    border: 1px solid #b8860b;
-    height: 150px;
-    flex-shrink: 0;
-}
-
-/* 右側：写真を枠いっぱいに広げる */
+/* 右側の写真：枠（合同な箱）いっぱいに広げる */
 .exterior-side-img {
     width: 100%;
-    height: 100%; /* 親の info-outer-photo の高さに100%合わせる */
-    object-fit: cover; /* 枠の形に合わせて自動でトリミングする */
+    height: 100%; /* 親の info-outer-photo の高さに完全に合わせる */
+    object-fit: cover; /* 枠の形に合わせて自動トリミング */
     filter: sepia(30%);
-    display: block;
 }
 
 /* 7. フッター */
-footer {
-    background-color: #432f2f;
-    color: #f6f1e6;
-    text-align: center;
-    padding: 50px 20px;
-    margin-top: 60px;
-}
+footer { background-color: #432f2f; color: #f6f1e6; text-align: center; padding: 50px 20px; margin-top: 60px; }
 
 /* 8. スマホ対応 */
 @media (max-width: 768px) {
-    #about .flex-container, .info-layout-wrapper {
-        flex-direction: column;
-    }
-    .info-card, .info-outer-photo {
-        width: 100%;
-        flex: none;
-        height: auto;
-    }
-    .exterior-side-img {
-        height: 300px; /* スマホでは高さを固定 */
-    }
-    .photo-vignette {
-        margin: 0 auto 20px;
-    }
-    #about p {
-        text-align: center;
-    }
-}
-
-section::after {
-    content: "";
-    display: block;
-    clear: both;
+    #about .flex-container, .info-layout-wrapper { flex-direction: column; }
+    .info-card, .info-outer-photo { width: 100%; flex: none; height: 350px; }
 }
