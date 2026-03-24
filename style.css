@@ -1,37 +1,21 @@
-/* 1. 全体の設定（さわらび明朝を適用） */
-/* 1. 全体の設定（和紙・オールドペーパーの質感を追加） */
+/* 1. 全体の設定（さわらび明朝 ＋ 和紙の質感） */
 body {
-    font-family: "Sawarabi Mincho", "Hiragino Mincho ProN", serif;
-    /* ベースの色（看板のクリーム色） */
-    background-color: #f6f1e6; 
-    
-    /* 和紙のような微細な質感を出すための設定（コードで模様を描いています） */
+    font-family: "Sawarabi Mincho", serif;
+    background-color: #f6f1e6;
     background-image: 
         radial-gradient(circle at 50% 50%, rgba(255,255,255,0.2) 0%, transparent 100%),
         repeating-linear-gradient(45deg, rgba(139, 69, 19, 0.02) 0px, rgba(139, 69, 19, 0.02) 1px, transparent 1px, transparent 10px),
         repeating-linear-gradient(-45deg, rgba(139, 69, 19, 0.02) 0px, rgba(139, 69, 19, 0.02) 1px, transparent 1px, transparent 10px);
-    background-attachment: fixed; /* スクロールしても模様がズレない設定 */
-    
+    background-attachment: fixed;
     color: #432f2f;
     margin: 0;
     padding: 0;
     line-height: 1.8;
 }
 
-/* ついでに各セクション（白い枠）も少しだけ紙っぽくします */
-section {
-    background-color: #fdf5e6; /* ほんのり色づいた紙の色 */
-    padding: 40px;
-    border-radius: 12px;
-    /* 枠線を二重線（double）にして、さらにレトロな高級感を！ */
-    border: 3px double #d4af37; 
-    box-shadow: 2px 4px 15px rgba(0,0,0,0.05);
-    margin-bottom: 50px;
-}
-
-/* 2. ヘッダー（看板画像スタイル） */
+/* 2. ヘッダー */
 header {
-    background-color: #f6f1e6; 
+    background-color: transparent; 
     text-align: center;
     padding: 60px 20px 30px;
 }
@@ -57,7 +41,7 @@ header {
     text-shadow: 1px 1px 0px rgba(255,255,255,0.8);
 }
 
-/* 3. メインコンテンツ（各項目をレトロな茶色に） */
+/* 3. メインコンテンツ（各項目をレトロな茶色に ＋ 二重線の枠） */
 main {
     max-width: 900px;
     margin: 0 auto;
@@ -70,22 +54,37 @@ section {
     border-radius: 12px;
     box-shadow: 2px 4px 10px rgba(0,0,0,0.08);
     margin-bottom: 50px;
-    border: 1px solid #e0d8c8;
-    background-image: linear-gradient(rgba(255,255,255,0.4) 1px, transparent 1px),
-                      linear-gradient(90deg, rgba(255,255,255,0.4) 1px, transparent 1px);
-    background-size: 20px 20px;
+    border: 3px double #d4af37; /* 二重線で高級感を */
 }
 
 h2 {
     color: #8b0000;
     font-size: 1.8rem;
-    border-bottom: 2px solid #b8860b;
-    padding-bottom: 15px;
+    position: relative;
+    display: inline-block;
+    padding-bottom: 10px;
     margin-top: 0;
+    width: 100%;
     text-align: center;
 }
 
-/* 4. メニュースライダー */
+/* 赤い線がスルスル伸びる動き */
+h2::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 10%;
+    width: 0;
+    height: 3px;
+    background-color: #8b0000;
+    transition: width 0.5s ease;
+}
+
+section:hover h2::after {
+    width: 80%;
+}
+
+/* 4. メニュースライダー ＋ 写真のレトロ加工 */
 .menu-slider {
     display: flex;
     overflow-x: auto;
@@ -102,20 +101,46 @@ h2 {
     padding: 20px;
     border-radius: 8px;
     background-color: #fffaf5;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    position: relative;
+}
+
+.menu-item:hover {
+    transform: translateY(-10px) scale(1.02);
+    box-shadow: 0 15px 30px rgba(0,0,0,0.15);
+}
+
+/* ヴィネット効果（四隅を暗くする） */
+.photo-vignette, .menu-photo-vignette {
+    position: relative;
+    overflow: hidden;
+    border-radius: 8px;
+}
+
+.photo-vignette::after, .menu-photo-vignette::after {
+    content: "";
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    background: radial-gradient(circle, transparent 40%, rgba(0,0,0,0.3) 100%);
+    pointer-events: none;
+    transition: opacity 0.5s ease;
+}
+
+.menu-item:hover .menu-photo-vignette::after {
+    opacity: 0; /* マウスを載せると影が消えて鮮やかに */
 }
 
 .menu-item img {
     width: 100%;
     height: 180px;
     object-fit: cover;
-    border-radius: 4px;
+    filter: sepia(30%) contrast(1.1); /* ほんのりセピア色 */
+    transition: filter 0.5s ease;
 }
 
-.swipe-hint {
-    text-align: center;
-    color: #8b0000;
-    font-size: 0.85rem;
-    margin-top: 10px;
+.menu-item:hover img {
+    filter: sepia(0%) contrast(1); /* マウスを載せると鮮やかに */
 }
 
 /* 5. プロフィール */
@@ -125,6 +150,7 @@ h2 {
     margin: 0 25px 15px 0;
     border-radius: 50%;
     border: 3px solid #fff;
+    filter: sepia(30%);
 }
 
 /* 6. 店舗情報（1:1 均等レイアウト） */
@@ -141,12 +167,6 @@ h2 {
     border-radius: 20px;
     padding: 25px;
     box-shadow: 6px 6px 0 #b8860b;
-    display: flex;
-    flex-direction: column;
-}
-
-.info-text-list {
-    flex-grow: 1;
 }
 
 .info-text-list p {
@@ -154,11 +174,12 @@ h2 {
     font-size: 0.9rem;
     border-bottom: 1px dashed #dcdde1;
     padding-bottom: 5px;
+    transition: background-color 0.3s ease, padding-left 0.3s ease;
 }
 
-.smoking-policy {
-    color: #d9534f;
-    font-weight: bold;
+.info-text-list p:hover {
+    background-color: #fffaf0;
+    padding-left: 10px;
 }
 
 .info-map-small {
@@ -179,6 +200,7 @@ h2 {
     object-fit: cover;
     border-radius: 20px;
     border: 3px solid #fff;
+    filter: sepia(30%);
 }
 
 /* 7. フッター */
@@ -194,93 +216,10 @@ footer {
 @media (max-width: 768px) {
     .info-layout-wrapper { flex-direction: column; }
     .profile-img { float: none; display: block; margin: 0 auto 20px; }
-    header { padding-top: 30px; }
-    .header-sub { font-size: 1rem; }
 }
 
 section::after {
     content: "";
     display: block;
     clear: both;
-}
-/* --- 写真に動きをつける魔法（ホバーエフェクト） --- */
-
-/* 1. メニューの写真がふわっと浮き上がる */
-.menu-item {
-    transition: transform 0.3s ease, box-shadow 0.3s ease; /* 変化を滑らかにする設定 */
-    cursor: pointer; /* マウスを載せると「指マーク」になる */
-}
-
-.menu-item:hover {
-    transform: translateY(-10px) scale(1.02); /* 上に10px浮き上がり、ほんの少し大きく */
-    box-shadow: 0 15px 30px rgba(0,0,0,0.15); /* 影を濃くして、浮いている感を出す */
-}
-
-/* 2. 画像そのものに少し光を当てる */
-.menu-item img {
-    transition: opacity 0.3s ease;
-}
-
-.menu-item:hover img {
-    opacity: 0.9; /* 少しだけ明るく（透かす）ことで、「選択している」感を出します */
-}
-
-/* 3. 二代目マスターと外観写真も、ほんのり動くように */
-.profile-img, .exterior-side-img {
-    transition: transform 0.5s ease;
-}
-
-.profile-img:hover, .exterior-side-img:hover {
-    transform: scale(1.03); /* じわっと少しだけ大きくなる */
-}
-/* --- 文字やボタンに「反応」をつける魔法 --- */
-
-/* 1. 見出し（h2）の下線をスッと伸ばす演出 */
-h2 {
-    position: relative;
-    display: inline-block; /* 幅を文字に合わせる */
-    padding-bottom: 5px;
-    border-bottom: none; /* 元の下線を消して、自作します */
-}
-
-h2::after {
-    content: "";
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 0; /* 最初は線がない状態 */
-    height: 3px;
-    background-color: #8b0000;
-    transition: width 0.5s ease; /* 0.5秒かけて伸びる */
-}
-
-/* セクションにマウスを載せると、その見出しの線が伸びる */
-section:hover h2::after {
-    width: 100%; /* 端まで線が伸びる */
-}
-
-/* 2. メニュー名と価格の色をじわっと変える */
-.menu-item h3, .menu-item p {
-    transition: color 0.3s ease;
-}
-
-.menu-item:hover h3 {
-    color: #8b0000; /* ロゴと同じエンジ色に強調 */
-}
-
-.menu-item:hover p {
-    color: #b8860b; /* 価格は金色（真鍮色）に変化 */
-    transform: scale(1.1); /* 値段だけ少し大きくして「お得感」を */
-}
-
-/* 3. 店舗情報の各行を浮き立たせる */
-.info-text-list p {
-    transition: background-color 0.3s ease, padding-left 0.3s ease;
-    border-radius: 4px;
-}
-
-.info-text-list p:hover {
-    background-color: #fffaf0; /* ほんのり明るいベージュに */
-    padding-left: 10px; /* 左側に少しズレることで「選択」を表現 */
-    color: #8b0000;
 }
