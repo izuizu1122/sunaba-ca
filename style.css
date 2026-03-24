@@ -84,7 +84,7 @@ section:hover h2::after {
     width: 80%;
 }
 
-/* --- 4. 【修正】私たちの物語セクション --- */
+/* 4. 私たちの物語（写真は丸く、文章は横に） */
 #about .flex-container {
     display: flex;
     align-items: center;
@@ -96,7 +96,7 @@ section:hover h2::after {
     height: 200px;
     position: relative;
     overflow: hidden;
-    border-radius: 50%; /* 丸く切り抜き */
+    border-radius: 50%; /* マスターの写真は丸いまま */
     border: 3px solid #fff;
     box-shadow: 0 4px 15px rgba(0,0,0,0.1);
 }
@@ -181,14 +181,7 @@ section:hover h2::after {
     filter: sepia(0%) contrast(1);
 }
 
-.swipe-hint {
-    text-align: center;
-    color: #8b0000;
-    font-size: 0.85rem;
-    margin-top: 10px;
-}
-
-/* 6. 店舗情報（1:1 均等レイアウト） */
+/* 6. 店舗情報（写真は四隅が丸い四角形に戻す） */
 .info-layout-wrapper {
     display: flex;
     gap: 20px;
@@ -215,12 +208,6 @@ section:hover h2::after {
     font-size: 0.9rem;
     border-bottom: 1px dashed #dcdde1;
     padding-bottom: 5px;
-    transition: background-color 0.3s ease, padding-left 0.3s ease;
-}
-
-.info-text-list p:hover {
-    background-color: #fffaf0;
-    padding-left: 10px;
 }
 
 .info-map-small {
@@ -233,6 +220,8 @@ section:hover h2::after {
 
 .info-outer-photo {
     flex: 1;
+    overflow: hidden; /* ラグビーボールにならないようリセット */
+    border-radius: 20px; /* ここで四角形に戻す */
 }
 
 .exterior-side-img {
