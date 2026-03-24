@@ -1,14 +1,14 @@
 /* 1. 全体の設定（看板の背景色に合わせた生成り色） */
 body {
-    font-family: "Sawarabi Mincho", "Hiragino Mincho ProN", serif;
-    background-color: #f6f1e6; /* 看板の背景に近い温かいクリーム色 */
-    color: #432f2f; /* 濃いローストコーヒーのような茶色 */
+    font-family: "Sawarabi Mincho", serif; /* さわらび明朝を最優先にする */
+    background-color: #f6f1e6;
+    color: #432f2f;
     margin: 0;
     padding: 0;
     line-height: 1.8;
 }
 
-/* 2. ヘッダー（看板画像とキャッチコピー） */
+/* 2. ヘッダー（看板画像スタイル） */
 header {
     background-color: #f6f1e6; 
     text-align: center;
@@ -28,7 +28,7 @@ header {
 }
 
 .header-sub {
-    color: #8b0000; /* ロゴと同じエンジ色 */
+    color: #8b0000;
     font-size: 1.4rem;
     font-weight: bold;
     margin-top: 30px;
@@ -36,7 +36,7 @@ header {
     text-shadow: 1px 1px 0px rgba(255,255,255,0.8);
 }
 
-/* 3. メインコンテンツ */
+/* 3. メインコンテンツ（各項目をレトロな茶色に） */
 main {
     max-width: 900px;
     margin: 0 auto;
@@ -44,23 +44,22 @@ main {
 }
 
 section {
-    background-color: #fdf5e6; /* オールドレース（薄いベージュ・茶系） */
-    padding: 30px;
+    background-color: #fdf5e6; /* 薄い茶色のレトロな背景 */
+    padding: 40px;
     border-radius: 12px;
-    box-shadow: 2px 4px 10px rgba(0,0,0,0.08); /* 影を少し控えめにして落ち着きを */
-    margin-bottom: 40px;
-    border: 1px solid #e0d8c8; /* 枠線を少し濃いベージュに */
-    
-    /* 応用：うっすらと和紙のような模様を入れる（任意） */
+    box-shadow: 2px 4px 10px rgba(0,0,0,0.08);
+    margin-bottom: 50px;
+    border: 1px solid #e0d8c8;
+    /* うっすらとした和紙のような模様 */
     background-image: linear-gradient(rgba(255,255,255,0.4) 1px, transparent 1px),
                       linear-gradient(90deg, rgba(255,255,255,0.4) 1px, transparent 1px);
-    background-size: 20px 20px; /* うっすらとした格子模様で紙の質感を出す */
+    background-size: 20px 20px;
 }
 
 h2 {
     color: #8b0000;
     font-size: 1.8rem;
-    border-bottom: 1px solid #b8860b;
+    border-bottom: 2px solid #b8860b;
     padding-bottom: 15px;
     margin-top: 0;
     text-align: center;
@@ -73,7 +72,6 @@ h2 {
     scroll-snap-type: x mandatory;
     gap: 20px;
     padding: 20px 0;
-    -webkit-overflow-scrolling: touch;
 }
 
 .menu-item {
@@ -82,25 +80,15 @@ h2 {
     text-align: center;
     border: 1px solid #e0d8c8;
     padding: 20px;
-    border-radius: 4px;
-    background-color: #fdfaf5;
+    border-radius: 8px;
+    background-color: #fffaf5;
 }
 
 .menu-item img {
     width: 100%;
     height: 180px;
     object-fit: cover;
-    border-radius: 2px;
-}
-
-.menu-item h3 {
-    color: #432f2f;
-    margin: 15px 0 5px;
-}
-
-.menu-item p {
-    color: #8b0000;
-    font-weight: bold;
+    border-radius: 4px;
 }
 
 .swipe-hint {
@@ -110,27 +98,25 @@ h2 {
     margin-top: 10px;
 }
 
-/* 5. プロフィール画像 */
+/* 5. プロフィール */
 .profile-img {
-    width: 200px;
+    width: 180px;
     float: left;
-    margin: 0 30px 20px 0;
+    margin: 0 25px 15px 0;
     border-radius: 50%;
-    border: 5px solid #fff;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    border: 3px solid #fff;
 }
 
-/* 6. 店舗情報（1:1の均等レイアウト） */
+/* 6. 店舗情報（1:1 均等レイアウト） */
 .info-layout-wrapper {
     display: flex;
     gap: 20px;
-    align-items: stretch; /* 高さを揃える */
-    margin-top: 20px;
+    align-items: stretch;
 }
 
 .info-card {
-    flex: 1; /* 幅を1:1にする */
-    background-color: #fdfaf5;
+    flex: 1;
+    background-color: #fffcf9;
     border: 2px solid #8b0000;
     border-radius: 20px;
     padding: 25px;
@@ -148,13 +134,11 @@ h2 {
     font-size: 0.9rem;
     border-bottom: 1px dashed #dcdde1;
     padding-bottom: 5px;
-    line-height: 1.4;
 }
 
 .smoking-policy {
     color: #d9534f;
     font-weight: bold;
-    border: none !important;
 }
 
 .info-map-small {
@@ -166,16 +150,15 @@ h2 {
 }
 
 .info-outer-photo {
-    flex: 1; /* 幅を1:1にする */
+    flex: 1;
 }
 
 .exterior-side-img {
     width: 100%;
     height: 100%;
-    object-fit: cover; /* カードの高さに合わせて画像を切り抜く */
+    object-fit: cover;
     border-radius: 20px;
     border: 3px solid #fff;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
 }
 
 /* 7. フッター */
@@ -187,27 +170,12 @@ footer {
     margin-top: 60px;
 }
 
-/* 8. スマホ・タブレット対応 */
+/* スマホ対応 */
 @media (max-width: 768px) {
+    .info-layout-wrapper { flex-direction: column; }
+    .profile-img { float: none; display: block; margin: 0 auto 20px; }
     header { padding-top: 30px; }
-    .header-sub { font-size: 1rem; letter-spacing: 0.2rem; }
-    
-    .info-layout-wrapper {
-        flex-direction: column;
-    }
-    .info-card, .info-outer-photo {
-        width: 100%;
-        flex: none;
-    }
-    .exterior-side-img {
-        height: 250px;
-    }
-    
-    .profile-img {
-        float: none;
-        display: block;
-        margin: 0 auto 20px;
-    }
+    .header-sub { font-size: 1rem; }
 }
 
 section::after {
