@@ -212,3 +212,54 @@ section::after {
 .profile-img:hover, .exterior-side-img:hover {
     transform: scale(1.03); /* じわっと少しだけ大きくなる */
 }
+/* --- 文字やボタンに「反応」をつける魔法 --- */
+
+/* 1. 見出し（h2）の下線をスッと伸ばす演出 */
+h2 {
+    position: relative;
+    display: inline-block; /* 幅を文字に合わせる */
+    padding-bottom: 5px;
+    border-bottom: none; /* 元の下線を消して、自作します */
+}
+
+h2::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0; /* 最初は線がない状態 */
+    height: 3px;
+    background-color: #8b0000;
+    transition: width 0.5s ease; /* 0.5秒かけて伸びる */
+}
+
+/* セクションにマウスを載せると、その見出しの線が伸びる */
+section:hover h2::after {
+    width: 100%; /* 端まで線が伸びる */
+}
+
+/* 2. メニュー名と価格の色をじわっと変える */
+.menu-item h3, .menu-item p {
+    transition: color 0.3s ease;
+}
+
+.menu-item:hover h3 {
+    color: #8b0000; /* ロゴと同じエンジ色に強調 */
+}
+
+.menu-item:hover p {
+    color: #b8860b; /* 価格は金色（真鍮色）に変化 */
+    transform: scale(1.1); /* 値段だけ少し大きくして「お得感」を */
+}
+
+/* 3. 店舗情報の各行を浮き立たせる */
+.info-text-list p {
+    transition: background-color 0.3s ease, padding-left 0.3s ease;
+    border-radius: 4px;
+}
+
+.info-text-list p:hover {
+    background-color: #fffaf0; /* ほんのり明るいベージュに */
+    padding-left: 10px; /* 左側に少しズレることで「選択」を表現 */
+    color: #8b0000;
+}
