@@ -41,7 +41,7 @@ header {
     text-shadow: 1px 1px 0px rgba(255,255,255,0.8);
 }
 
-/* 3. メインコンテンツ（各項目をレトロな茶色に ＋ 二重線の枠） */
+/* 3. メインコンテンツ */
 main {
     max-width: 900px;
     margin: 0 auto;
@@ -68,7 +68,6 @@ h2 {
     text-align: center;
 }
 
-/* 赤い線がスルスル伸びる動き */
 h2::after {
     content: "";
     position: absolute;
@@ -84,7 +83,7 @@ section:hover h2::after {
     width: 80%;
 }
 
-/* 4. 私たちの物語（写真は丸く、文章は横に） */
+/* 4. 私たちの物語（マスターの写真は丸く、文章は横に） */
 #about .flex-container {
     display: flex;
     align-items: center;
@@ -96,7 +95,7 @@ section:hover h2::after {
     height: 200px;
     position: relative;
     overflow: hidden;
-    border-radius: 50%; /* マスターの写真は丸いまま */
+    border-radius: 50%;
     border: 3px solid #fff;
     box-shadow: 0 4px 15px rgba(0,0,0,0.1);
 }
@@ -106,16 +105,6 @@ section:hover h2::after {
     height: 100%;
     object-fit: cover;
     filter: sepia(30%);
-}
-
-.photo-vignette::after {
-    content: "";
-    position: absolute;
-    top: 0; left: 0;
-    width: 100%; height: 100%;
-    background: radial-gradient(circle, transparent 40%, rgba(0,0,0,0.3) 100%);
-    pointer-events: none;
-    border-radius: 50%;
 }
 
 #about p {
@@ -149,52 +138,33 @@ section:hover h2::after {
     box-shadow: 0 15px 30px rgba(0,0,0,0.15);
 }
 
-.menu-photo-vignette {
-    position: relative;
-    overflow: hidden;
-    border-radius: 4px;
-}
-
-.menu-photo-vignette::after {
-    content: "";
-    position: absolute;
-    top: 0; left: 0;
-    width: 100%; height: 100%;
-    background: radial-gradient(circle, transparent 40%, rgba(0,0,0,0.3) 100%);
-    pointer-events: none;
-    transition: opacity 0.5s ease;
-}
-
-.menu-item:hover .menu-photo-vignette::after {
-    opacity: 0;
-}
-
 .menu-item img {
     width: 100%;
     height: 180px;
     object-fit: cover;
+    border-radius: 4px;
     filter: sepia(30%) contrast(1.1);
-    transition: filter 0.5s ease;
 }
 
-.menu-item:hover img {
-    filter: sepia(0%) contrast(1);
-}
-
-/* 6. 店舗情報（写真は四隅が丸い四角形に戻す） */
+/* 6. 店舗情報（左右を全く同じサイズ・デザインにする修正） */
 .info-layout-wrapper {
     display: flex;
-    gap: 20px;
-    align-items: stretch;
+    gap: 25px;
+    align-items: stretch; /* 高さを強制的に一致させる */
+}
+
+/* 左側の店舗情報カード と 右側の写真コンテナ を共通デザインに */
+.info-card, .info-outer-photo {
+    flex: 1; /* 幅を50%ずつに均等割り */
+    background-color: #fffcf9;
+    border: 2px solid #8b0000; /* エンジ色の枠線を共通に */
+    border-radius: 20px;       /* 角丸を共通に */
+    box-shadow: 6px 6px 0 #b8860b; /* 金色の影を共通に */
+    overflow: hidden;          /* 中身が枠からはみ出さないように */
 }
 
 .info-card {
-    flex: 1;
-    background-color: #fffcf9;
-    border: 2px solid #8b0000;
-    border-radius: 20px;
     padding: 25px;
-    box-shadow: 6px 6px 0 #b8860b;
     display: flex;
     flex-direction: column;
 }
@@ -204,7 +174,7 @@ section:hover h2::after {
 }
 
 .info-text-list p {
-    margin: 10px 0;
+    margin: 8px 0;
     font-size: 0.9rem;
     border-bottom: 1px dashed #dcdde1;
     padding-bottom: 5px;
@@ -215,22 +185,16 @@ section:hover h2::after {
     border-radius: 10px;
     overflow: hidden;
     border: 1px solid #b8860b;
-    height: 150px;
+    height: 120px;
 }
 
-.info-outer-photo {
-    flex: 1;
-    overflow: hidden; /* ラグビーボールにならないようリセット */
-    border-radius: 20px; /* ここで四角形に戻す */
-}
-
+/* 右側の写真：枠の中にピッタリ収める */
 .exterior-side-img {
     width: 100%;
     height: 100%;
-    object-fit: cover;
-    border-radius: 20px;
-    border: 3px solid #fff;
+    object-fit: cover; /* 枠の形に合わせて写真を切り抜く */
     filter: sepia(30%);
+    display: block;
 }
 
 /* 7. フッター */
@@ -247,12 +211,6 @@ footer {
     #about .flex-container, .info-layout-wrapper {
         flex-direction: column;
     }
-    .photo-vignette {
-        margin: 0 auto 20px;
-    }
-    #about p {
-        text-align: center;
-    }
     .info-card, .info-outer-photo {
         width: 100%;
         flex: none;
@@ -260,8 +218,12 @@ footer {
     .exterior-side-img {
         height: 250px;
     }
-    header { padding-top: 30px; }
-    .header-sub { font-size: 1rem; }
+    .photo-vignette {
+        margin: 0 auto 20px;
+    }
+    #about p {
+        text-align: center;
+    }
 }
 
 section::after {
