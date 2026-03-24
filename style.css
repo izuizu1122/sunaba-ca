@@ -1,6 +1,6 @@
-/* 1. 全体の設定（看板の背景色に合わせた生成り色） */
+/* 1. 全体の設定（さわらび明朝を適用） */
 body {
-    font-family: "Sawarabi Mincho", serif; /* さわらび明朝を最優先にする */
+    font-family: "Sawarabi Mincho", serif;
     background-color: #f6f1e6;
     color: #432f2f;
     margin: 0;
@@ -44,13 +44,12 @@ main {
 }
 
 section {
-    background-color: #fdf5e6; /* 薄い茶色のレトロな背景 */
+    background-color: #fdf5e6;
     padding: 40px;
     border-radius: 12px;
     box-shadow: 2px 4px 10px rgba(0,0,0,0.08);
     margin-bottom: 50px;
     border: 1px solid #e0d8c8;
-    /* うっすらとした和紙のような模様 */
     background-image: linear-gradient(rgba(255,255,255,0.4) 1px, transparent 1px),
                       linear-gradient(90deg, rgba(255,255,255,0.4) 1px, transparent 1px);
     background-size: 20px 20px;
@@ -170,7 +169,7 @@ footer {
     margin-top: 60px;
 }
 
-/* スマホ対応 */
+/* 8. スマホ対応 */
 @media (max-width: 768px) {
     .info-layout-wrapper { flex-direction: column; }
     .profile-img { float: none; display: block; margin: 0 auto 20px; }
